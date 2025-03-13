@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register Page</title>
-<style>
-* {
-        margin: 0;
-        padding: 0;
-         box-sizing: border-box;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
         body {
@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #6e8efb, #a77ed8);
+            background: linear-gradient(135deg, #449cea, #ff7eb3);
         }
         .container {
             background: #fff;
@@ -45,7 +45,7 @@
         .btn {
             width: 100%;
             padding: 12px;
-            background: #6e8efb;
+            background: #ff5a7e;
             color: white;
             font-size: 18px;
             border: none;
@@ -57,21 +57,26 @@
 </head>
 <body>
     <div class="container">
-        <h2>Register</h2>
-        <form id="registerForm">
+        <h2>Login</h2>
+        <form id="loginForm">
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
             </div>
-            <button type="submit" class="btn">Next</button>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
         </form>
     </div>
+
     <script>
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            localStorage.setItem('name', name);
-            window.location.href = 'login.html'; 
+            localStorage.setItem('email', document.getElementById('email').value);
+            localStorage.setItem('password', document.getElementById('password').value);
+            window.location.href = 'welcome.html'; 
         });
     </script>
 </body>

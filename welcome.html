@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #d74bc4, #4548d8);
+            text-align: center;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #ff5a7e;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome <span id="userName"></span> 🎉</h2>
+        <p>Your email: <strong><span id="userEmail"></span></strong></p>
+        <button class="btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        document.getElementById('userName').textContent = localStorage.getItem('name') || "Guest";
+        document.getElementById('userEmail').textContent = localStorage.getItem('email') || "Not Provided";
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "login.html"; 
+        }
+    </script>
+</body>
+</html>
